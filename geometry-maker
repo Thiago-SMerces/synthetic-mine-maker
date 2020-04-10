@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!C:\Users\thiag\AppData\Local\Programs\Python\Python38\python.exe
 # -*- coding: utf-8 -*-
 
 # Synthetic mine generator
@@ -152,6 +152,7 @@ def main():
         floor = MapGen(
             drill_size_gen,
             geo_size_gens,
+            num_dimensions,
             cols = grid_cols,
             rows = grid_rows,
             min_seeds  = int(cfg.get("Floor", "min_seeds")),
@@ -162,7 +163,6 @@ def main():
             num_drills = drillholes[i],
             drill_ival_length = int(cfg.get("DrillHoles", "interval_length")),
             num_shapes = shapes[i],
-            num_dimensions = num_dimensions
         )
         floor.create(i, num_floors)
         num_blocks += sum([len(shp.block_indexes) for shp in floor.shapes])
